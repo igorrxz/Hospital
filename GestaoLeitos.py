@@ -53,7 +53,7 @@ class SistemaGestaoLeitos:
         if leitos_disponiveis:
             print("Leitos disponíveis:", leitos_disponiveis)
         else:
-            print("Todos os leitos estão ocupados.")
+            print("Não há Leitos disponíveis!")
 
     def listar_leitos(self):
         print("Lista de leitos:")
@@ -74,8 +74,7 @@ class SistemaGestaoLeitos:
         leitos_ocupados = sum(1 for leito in self.leitos if leito.ocupado)
         return (leitos_ocupados / len(self.leitos)) * 100 if len(self.leitos) > 0 else 0
 
-# Exemplo de uso
-capacidade_maxima = 20  # Defina a capacidade máxima do hospital
+capacidade_maxima = 20  
 sistema = SistemaGestaoLeitos(capacidade_maxima)
 
 while True:
