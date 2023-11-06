@@ -6,6 +6,10 @@ class Equipamento:
         self.data_aquisicao = data_aquisicao
         self.manutencoes = []
 
+    def executar(self):
+        print("Você selecionou Controle de Equipamentos.")
+
+
     def adicionar_manutencao(self, tipo_manutencao, data_manutencao, intervencao):
         manutencao = {"tipo": tipo_manutencao, "data": data_manutencao, "intervencao": intervencao}
         self.manutencoes.append(manutencao)

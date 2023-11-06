@@ -4,6 +4,9 @@ class Leito:
         self.ocupado = False
         self.gravidade = gravidade
 
+    def executar(self):
+        print("Você selecionou Gestão de Leitos.")
+
 class SistemaGestaoLeitos:
     def __init__(self, capacidade_maxima):
         self.leitos = []
@@ -74,45 +77,46 @@ class SistemaGestaoLeitos:
         leitos_ocupados = sum(1 for leito in self.leitos if leito.ocupado)
         return (leitos_ocupados / len(self.leitos)) * 100 if len(self.leitos) > 0 else 0
 
-capacidade_maxima = 20  
-sistema = SistemaGestaoLeitos(capacidade_maxima)
+def menu_gestao_leitos():
+    capacidade_maxima = 20
+    sistema = SistemaGestaoLeitos(capacidade_maxima)
 
-while True:
-    print("Opções:")
-    print("1. Adicionar leito")
-    print("2. Ocupar leito")
-    print("3. Desocupar leito")
-    print("4. Listar leitos")
-    print("5. Listar leitos disponíveis")
-    print("6. Gerar relatório")
-    print("7. Sair")
+    while True:
+        print("Opções:")
+        print("1. Adicionar leito")
+        print("2. Ocupar leito")
+        print("3. Desocupar leito")
+        print("4. Listar leitos")
+        print("5. Listar leitos disponíveis")
+        print("6. Gerar relatório")
+        print("7. Voltar ao menu principal")
 
-    opcao = input("Escolha uma opção: ")
+        opcao = input("Escolha uma opção: ")
 
-    if opcao == "1":
-        gravidade = input("Gravidade do caso (Alta/Média/Baixa): ")
-        if gravidade in ["Alta", "Média", "Baixa"]:
-            sistema.adicionar_leito(gravidade)
+        if opcao == "1":
+            gravidade = input("Gravidade do caso (Alta/Média/Baixa): ")
+            if gravidade in ["Alta", "Média", "Baixa"]:
+                sistema.adicionar_leito(gravidade)
+            else:
+                print("Gravidade inválida. Escolha entre Alta, Média ou Baixa.")
+        elif opcao == "2":
+            sistema.listar_leitos_disponiveis()
+            numero = int(input("Número do leito a ocupar: "))
+            leitos_disponiveis = [leito.numero for leito in sistema.leitos if not leito.ocupado]
+            if numero in leitos_disponiveis:
+                sistema.ocupar_leito(numero)
+            else:
+                print(f"Leito {numero} não está disponível.")
+        elif opcao == "3":
+            numero = int(input("Número do leito a desocupar: "))
+            sistema.desocupar_leito(numero)
+        elif opcao == "4":
+            sistema.listar_leitos()
+        elif opcao == "5":
+            sistema.listar_leitos_disponiveis()
+        elif opcao == "6":
+            sistema.gerar_relatorio()
+        elif opcao == "7":
+            break
         else:
-            print("Gravidade inválida. Escolha entre Alta, Média ou Baixa.")
-    elif opcao == "2":
-        sistema.listar_leitos_disponiveis()
-        numero = int(input("Número do leito a ocupar: "))
-        leitos_disponiveis = [leito.numero for leito in sistema.leitos if not leito.ocupado]
-        if numero in leitos_disponiveis:
-            sistema.ocupar_leito(numero)
-        else:
-            print(f"Leito {numero} não está disponível.")
-    elif opcao == "3":
-        numero = int(input("Número do leito a desocupar: "))
-        sistema.desocupar_leito(numero)
-    elif opcao == "4":
-        sistema.listar_leitos()
-    elif opcao == "5":
-        sistema.listar_leitos_disponiveis()
-    elif opcao == "6":
-        sistema.gerar_relatorio()
-    elif opcao == "7":
-        break
-    else:
-        print("Opção inválida. Tente novamente.")
+            print("Opção inválida. Tente novamente.")

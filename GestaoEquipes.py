@@ -1,5 +1,13 @@
 import csv
 
+class GestaoEquipes:
+    def __init__(self):
+        self.equipes = {}
+
+    def executar(self):
+        print("Você selecionou Gestão de Equipes.")
+
+
 profissionais = []
 
 
@@ -120,3 +128,4 @@ while True:
 
     else:
         print("\nOpção inválida! Tente novamente.\n")
+

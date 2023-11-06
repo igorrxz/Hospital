@@ -1,6 +1,9 @@
 class ProntuarioEletronico:
     def __init__(self):
-        self.pacientes = {}  # Dicionário para armazenar informações dos pacientes
+        self.pacientes = {}
+
+    def executar(self):
+        print("Você selecionou o Prontuário Eletrônico.")
 
     def cadastrar_paciente(self, id_paciente, nome, data_nascimento, genero, endereco, telefone, email):
         if id_paciente not in self.pacientes:
@@ -65,7 +68,6 @@ class ProntuarioEletronico:
         else:
             return None
 
-# Function to display the menu and handle user input
 def main_menu(prontuario):
     while True:
         print("Menu:")

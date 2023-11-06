@@ -1,6 +1,8 @@
 import csv
 
 
+
+
 # Função para gerar relatório em formato .txt
 def gerar_relatorio_txt(relatorio_data, nome_arquivo):
     with open(nome_arquivo + ".txt", 'w') as file:
@@ -41,3 +43,9 @@ def gerar_relatorio():
 
 if __name__ == "__main__":
     gerar_relatorio()
+
+def __init__(self):
+        print("Você selecionou Relatórios e Análises.")
+
+def executar(self):
+    print("Você selecionou Relatórios e Análises.")

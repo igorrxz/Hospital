@@ -2,6 +2,9 @@ class CadastroVisitantes:
     def __init__(self):
         self.visitantes = {}
 
+    def executar(self):
+        print("Você selecionou Cadastrar Visitantes.")
+
     def cadastrar_visitante(self):
         nome = input("Qual o nome do visitante? ")
         documento = input("Informe seu CPF: ")
@@ -95,3 +98,4 @@ while True:
     elif choice == '8':
         print("Volte sempre!")
         break
+

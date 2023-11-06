@@ -6,6 +6,9 @@ class Medicamento:
         self.forma_administracao = forma_administracao
         self.estoque = []
 
+    def executar(self):
+        print("Você selecionou Controle de Medicamentos.")
+
     def adicionar_lote(self, lote, quantidade, data_validade, fornecedor):
         lote_info = {"lote": lote, "quantidade": quantidade, "data_validade": data_validade, "fornecedor": fornecedor}
         self.estoque.append(lote_info)
