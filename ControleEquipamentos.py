@@ -42,7 +42,6 @@ class ControleEquipamentos:
         equipamento.adicionar_manutencao(tipo_manutencao, data_manutencao, "Manutenção Preventiva")
         print("Manutenção preventiva programada com sucesso.")
 
-# Exemplo de uso
 controle_equipamentos = ControleEquipamentos()
 
 while True:
